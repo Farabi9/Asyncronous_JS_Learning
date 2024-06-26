@@ -8,30 +8,75 @@ let stocks = {
 let is_shop_open = !true;
 
 
-// Async Await 
-
-let toppinChoise = () =>{
-    return new Promise((resolve, reject)=>{
-        setTimeout(()=>{
-            console.log('Which toppins would you like to have?');
-            resolve()
-        },3000) 
+function time(ms){
+    return new Promise((resolve,reject)=>{
+        if(is_shop_open){
+            setTimeout(resolve,ms)
+        }
+        else{
+            reject(console.log('Shop is Close'))
+        }
     })
 }
 
-async function kithchen(){
-    console.log('A');
-    console.log('B');
-    console.log('c');
-    await toppinChoise();
-    console.log('D')
-    console.log('E')
+async function kitchen(){
 
+   try{
+    await time(2000)
+    console.log(`${stocks.Fruits[0]} was selected`)
+
+    await time(0)
+    console.log(`Production is started`)
+
+    await time(2000)
+    console.log(`Cutting the Fruit`)
+
+    await time(1000)
+    console.log(`${stocks.liquid[0]} & ${stocks.liquid[1]} was added`)
+
+    await time(1000)
+    console.log(`Machine started`)
+
+    await time(2000)
+    console.log(`${stocks.holder[0]} was selected as container`)
+
+    await time(3000)
+    console.log(`${stocks.toppings[0]} was selected as toppins`)
+
+    await time(2000)
+    console.log(`Ice cream served`)
+
+   }
+   catch(error){ console.log('Customer Left')}
+   finally{console.log('Day Ended')}
 }
 
-kithchen();
-console.log('Doing dishes')
-    console.log('Ended')
+kitchen()
+
+// Async Await 
+
+// let toppinChoise = () =>{
+//     return new Promise((resolve, reject)=>{
+//         setTimeout(()=>{
+//             console.log('Which toppins would you like to have?');
+//             resolve()
+//         },3000) 
+//     })
+// }
+
+// async function kithchen(){
+//     console.log('A');
+//     console.log('B');
+//     console.log('c');
+//     await toppinChoise();
+//     console.log('D')
+//     console.log('E')
+
+// }
+
+// kithchen();
+// console.log('Doing dishes')
+//     console.log('Ended')
 
 
 
