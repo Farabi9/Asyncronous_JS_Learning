@@ -7,29 +7,61 @@ let stocks = {
 
 let is_shop_open = !true;
 
-let order = (time, work) =>{
 
-  return new Promise((resolve, reject)=> {
-    if(is_shop_open){
+// Async Await 
 
+let toppinChoise = () =>{
+    return new Promise((resolve, reject)=>{
         setTimeout(()=>{
-            resolve( work ())
-        }, time)
-        
+            console.log('Which toppins would you like to have?');
+            resolve()
+        },3000) 
+    })
+}
 
-    }
-    else{
-        reject(console.log('Shop is closed'))
-    }
-  })
+async function kithchen(){
+    console.log('A');
+    console.log('B');
+    console.log('c');
+    await toppinChoise();
+    console.log('D')
+    console.log('E')
 
 }
 
-order(2000, ()=> console.log(`${stocks.Fruits[0]} is selected`))
-.then(()=>{
-    return order(2000, ()=>console.log('production has started')
-)})
-.catch(()=>console.log('Customer Left'))
+kithchen();
+console.log('Doing dishes')
+    console.log('Ended')
+
+
+
+
+// Promises 
+
+// let order = (time, work) =>{
+
+//   return new Promise((resolve, reject)=> {
+//     if(is_shop_open){
+
+//         setTimeout(()=>{
+//             resolve( work ())
+//         }, time)
+        
+
+//     }
+//     else{
+//         reject(console.log('Shop is closed'))
+//     }
+//   })
+
+// }
+
+// order(2000, ()=> console.log(`${stocks.Fruits[0]} is selected`))
+// .then(()=>{
+//     return order(2000, ()=>console.log('production has started')
+// )})
+// .catch(()=>console.log('Customer Left'))
+// .finally(()=>console.log('great working'))
  
 
 
